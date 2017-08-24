@@ -1,0 +1,47 @@
+{
+  "name": "ngx-lib",
+  "version": "0.1.2",
+  "module": "dist/ngx-lib.js",
+  "main": "dist/ngx-lib.umd.js",
+  "types": "dist/ngx-lib.d.ts",
+  "scripts": {
+    "build": "npm run clean && npm run ngc && npm run bundle && npm run copy-metadata",
+    "bundle": "npm run bundle:fesm && npm run bundle:umd",
+    "bundle:fesm": "rollup build/ngx-lib.js -o dist/ngx-lib.js --format es",
+    "bundle:umd": "rollup build/ngx-lib.js -o dist/ngx-lib.umd.js --format umd --name ngxOffset",
+    "clean": "rm -rf build && rm -rf dist",
+    "copy-metadata": "find build/* -not -name '*.js' -exec cp {} dist \\;",
+    "ngc": "ngc -p tsconfig.build.json",
+    "start": "ng serve"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=4.0.0",
+    "@angular/core": ">=4.0.0",
+    "rxjs": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.2.7",
+    "@angular/common": "4.0.0",
+    "@angular/compiler": "4.0.0",
+    "@angular/compiler-cli": "4.0.0",
+    "@angular/core": "4.0.0",
+    "@angular/platform-browser": "4.0.0",
+    "@angular/platform-browser-dynamic": "4.0.0",
+    "core-js": "2.5.0",
+    "rollup": "0.48.2",
+    "rxjs": "5.0.0",
+    "typescript": "2.3.0",
+    "zone.js": "0.8.17"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/embarq/ngx-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/embarq/ngx-lib/issues"
+  },
+  "homepage": "https://github.com/embarq/ngx-lib#readme",
+  "bundleDependencies": false,
+  "deprecated": false
+}
